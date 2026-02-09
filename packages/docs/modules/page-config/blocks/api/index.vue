@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { DefineComponent, PropType } from 'vue';
-import merge from 'lodash/merge'
-import camelCase from 'lodash/camelCase'
+import { DefineComponent, PropType, camelize } from 'vue';
 import ApiTable from './components/ApiDocs.vue';
 import { MarkdownView } from '../shared/markdown'
 import {
@@ -14,6 +12,7 @@ import {
 } from './types';
 import commonDescription from "./common-description";
 import { Anchor } from "../shared/anchor";
+import { mergeDeep } from 'vuestic-ui'
 
 const props = defineProps({
   componentName: {
@@ -54,11 +53,11 @@ const props = defineProps({
 })
 
 const withManual = computed(() => {
-  return merge(props.meta, props.manual as ManualApiOptions)
+  return mergeDeep(props.meta, props.manual as ManualApiOptions)
 })
 
 function getDescription (type: APIDescriptionType, name: string): string {
-  const nameCamel = camelCase(name)
+  const nameCamel = camelize(name)
 
   return props.descriptionOptions?.[type]?.[nameCamel]
     ?? (commonDescription[type] as Record<string, string>)[nameCamel]

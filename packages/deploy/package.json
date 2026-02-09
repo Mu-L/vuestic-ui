@@ -7,9 +7,11 @@
     "release": "tsx release-script/release-script.ts"
   },
   "devDependencies": {
-    "chalk": "^5.2.0",
-    "inquirer": "^9.0.0",
-    "typescript": "^5.8.3"
+    "@types/semver": "^7.3.6",
+    "chalk": "^5.6.2",
+    "inquirer": "^13.2.2",
+    "semver": "^7.7.4",
+    "typescript": "^5.9.3"
   },
   "exports": {
     "./execute": "./execute/index.ts"

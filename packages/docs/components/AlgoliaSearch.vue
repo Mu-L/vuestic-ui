@@ -8,7 +8,6 @@
 <script lang="ts" setup>
 import docsearch from '@docsearch/js'
 import { onMounted } from 'vue'
-import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
@@ -70,8 +69,8 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-@import '@docsearch/css';
-@import '@/assets/smart-grid.scss';
+@use '@docsearch/css';
+@use '@/assets/smart-grid.scss' as *;
 
 :root {
   --docsearch-primary-color: var(--va-primary);

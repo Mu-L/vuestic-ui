@@ -79,8 +79,6 @@
 
 <script lang="ts">
 import { defineComponent, watch, ref, computed } from 'vue'
-import { useRoute } from 'vue-router'
-
 import { NavigationRoute, navigationRoutes } from '@/page-config/navigationRoutes'
 
 export const getSortedNavigationRoutes = (routes: NavigationRoute[]): NavigationRoute[] => {
@@ -175,8 +173,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import "vuestic-ui/src/styles/resources";
-@import "@/assets/smart-grid.scss";
+@use "vuestic-ui/src/styles/resources" as *;
+@use "@/assets/smart-grid.scss" as *;
 
 .sidebar {
   &__collapse-custom-header {
